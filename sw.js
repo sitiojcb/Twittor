@@ -8,7 +8,7 @@ const INMUTABLE_CACHE   = 'inmutable-v1';
 // recordar que si uno esta mal no se agrega el app shell
 const APP_SHELL = [
 // todo lo realizado por mi 
-    '/',
+  //  '/',
     'index.html',
     'css/style.css',
     'img/favicon.ico',

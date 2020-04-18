@@ -103,3 +103,4 @@ if(url.includes('localhost')) {
 }
 --------------
 lo mismo con '/'en el sw 
+lo comento para usar en github porque solo me sirve en desarrollo localhost

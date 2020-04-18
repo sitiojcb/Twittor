@@ -1,0 +1,86 @@
+Section 7: Despliegues a dispositivos
+Resumen puntual de la sección:
+
+Esta sección está enfocada en probar nuestra aplicación en un dispositivo y verlo funcionando en el mismo.
+
+Es recomendable trabajar con android ya que es el sistema operativo que mejor implementa las PWAs hasta el momento, pero también aprenderemos unos tips que servirán para mejorar el aspecto visual de nuestra aplicación en IOS.
+
+El corazón de esta sección es el archivo manifest.json, quien nos ayuda a indicarle al sistema operativo cómo debe de lucir nuestra aplicación, pero también aprenderemos un par de atributos meta y técnicas para que se vea aún mejor la aplicación web
+-----------------------------------------------
+
+preg:  login en la web; hay alguna forma segura de hacerlo automáticamente desde el dispositivo cuando ya se instaló la PWA, de modo tal que el usuario no necesite ingresar las credenciales.
+
+resp: https://youtu.be/XvGU-GRXieI
+
+Instalaciones en dispositivos android iOs 
+
+en app.js 
+if(navigator.serviceWorker) {
+//si el navegador soporta sw entonces lo registro
+    navigator.serviceWorker.register('/sw.js');
+}
+
+-----------------
+self.addEventListener('activate', e => {
+
+    const respuesta = caches.keys().then( keys => {
+
+        keys.forEach( key => {
+
+            if (  key !== STATIC_CACHE && key.includes('static') ) {
+                return caches.delete(key);
+            }
+
+        });
+
+    });
+
+    e.waitUntil( respuesta );
+
+
+});
+-------------
+a tener en cuenta
+si agrego al cache archivos mal por tipeo o mala direccion me da error por incumplimiento de la promesa !!
+
+ademas cuando en el html tengo por ej
+  <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
+  si agrego ese link directamente al cache no me sirve 
+  porque en realidad esta buscando en esta direccion:
+  https://fonts.gstatic.com/s/quicksand/v20/6xKtdSZaM9iE8KbpRA_hK1QNYuDyPw.woff2
+
+  es decir la primera es algo que mi css interpreta pero manda a esta segunda url, asi que si paso la primera al cache me va a dar error!
+por eso lo debo agregar al dynamic cache 
+
+video 77  Manifest.json 
+
+https://web.dev/add-manifest/
+
+The web app manifest is a JSON file that tells the browser about your Progressive Web App and how it should behave when installed on the user's desktop or mobile device. A typical manifest file includes the app name, the icons the app should use, and the URL that should be opened when the app is launched.
+
+agregamos manifes.json al root (puedo ponerle el nombre que quiera pero debe ser un .json)
+como lo vamos a subir a github usamos
+"start_url": "index.html" sin slash para que no de error
+sino podriamos usar / o /index.html
+
+generador de iconos para el manifest
+https://app-manifest.firebaseapp.com/
+
+video 78 depurar y correrlo en dispositivo
+
+androi studio para depurar
+
+video 79 desplegar desde github 
+usamos git 
+nos logeamos en github y creamos new repository
+twittor 
+vamos a usar push 
+git remote add origin https://github.com/sitiojcb/Twittor.git
+git push -u origin master
+
+pero primero
+
+git init 
+git status 
+git add . 
+git commit -m "primer commit"

@@ -84,3 +84,22 @@ git init
 git status 
 git add . 
 git commit -m "primer commit"
+
+en git una vez subido voy a settings y en apartado github pages elijo master branch espero a que indique que esta ok en verde!
+veo me da un link
+https://sitiojcb.github.io/Twittor/
+
+se presenta un error del fetch !!!
+y es que en realidad el sw no esta en la raiz... sino en github por eso modifico el app.js agregando
+var url = window.location.href;
+var swLocation = '/Twittor/sw.js';
+y tambien
+if(navigator.serviceWorker) {
+//si el navegador soporta sw entonces lo registro
+if(url.includes('localhost')) {
+    swLocation = '/sw.js';
+}
+    navigator.serviceWorker.register(swLocation);
+}
+--------------
+lo mismo con '/'en el sw 

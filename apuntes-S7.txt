@@ -148,3 +148,7 @@ By including the ontouchstart attribute in the body tag of your code and keeping
    </body>
 </html>
 ------------------------------------------------------
+video 82 quitar el notch
+modificando
+<meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, viewport-fit=cover">
+al agregarle height y el viewport deberia solucionar el notch 

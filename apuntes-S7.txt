@@ -104,3 +104,47 @@ if(url.includes('localhost')) {
 --------------
 lo mismo con '/'en el sw 
 lo comento para usar en github porque solo me sirve en desarrollo localhost
+---------
+para evitar mensaje del navegador preguntando si quieren traducir el sitio hay que agregar
+<meta name="google" content="notranslate">
+en el html
+--------------------
+
+en caso de que mi app no funcione bien puedo probar
+https://klerith.github.io/twittor
+
+que se supone debe funcionar bien
+
+----------
+video 81 instalacion para iOs
+antes no funcionaba cache storage pero ahora sí y de a poco incorpora mas cosas pero aún hay que optimizarlo
+
+ver 
+https://medium.com/appscope/designing-native-like-progressive-web-apps-for-ios-1b3cdda1d0e8
+
+si la app tuviera varias paginas habria que agregar las modificaciones en el head de cada pagina 
+
+al dia de hoy el splash screen da muchos problemas
+
+disable selection , highlight y callouts, se hacen con css agregando
+body {
+   -webkit-user-select: none;
+   -webkit-tap-highlight-color: transparent;
+   -webkit-touch-callout: none;
+   overscroll-behavior-y: contain;
+}
+tambien para evitar el efecto del chrome del spinn cuando hace el scroll que delata que no es una app nativa sino un navegador se lo deshabilita desde css con
+overscroll-behavior-y: contain;
+tambien al body
+-------------este no hizo falta ??
+By including the ontouchstart attribute in the body tag of your code and keeping its value empty, links and other elements will display their :hover and :active effects when tapped. Use the following code and play around with different :hover and :active styles to find the effects that work best for your PWA.
+
+<html>
+   <head>
+      ...
+   </head>
+   <body ontouchstart=””>
+      ...
+   </body>
+</html>
+------------------------------------------------------

@@ -12,7 +12,12 @@
     background-color: #dde1e2; 
     width: 100%;
 }
-
+body { 
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  overscroll-behavior-y: contain;
+}
 /* Personalizados */
 .oculto {
   display: none !important;
